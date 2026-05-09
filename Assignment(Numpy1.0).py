@@ -1,0 +1,10 @@
+import numpy as np
+arr = np.array([1, 2, 3, 4, 5, 6, 7])
+print(arr[:2])
+# What will be the printed result?
+
+
+import numpy as np
+arr = np.array([[[1, 2], [3, 4]], [[5, 6], [7, 8]]])
+print(arr[1, 1, 0])
+# What will be the printed result?

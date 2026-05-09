@@ -1,0 +1,4 @@
+20:24:44	 From Naincy Soni : total -= mp[s[i]]            else:                total += mp[s[i]]        return total
+20:25:00	 From Naincy Soni : if i + 1 < len(s) and mp[s[i]] < mp[s[i + 1]]:                total -= mp[s[i]]            else:                total += mp[s[i]]        return total
+20:30:23	 From Naincy Soni : IV = 4 → 5 - 1IX = 9 → 10 - 1XL = 40 → 50 - 10XC = 90 → 100 - 10CD = 400 → 500 - 100CM = 900 → 1000 - 100
+20:35:37	 From Naincy Soni : i + 1 < len(s)→ Check if next character exists.mp[s[i]] < mp[s[i + 1]]→ Check if current value is smaller than next value.If BOTH true → subtract (because it is like IV, IX, XL, etc.)Example:s = "IX"At i = 0 → I(1) < X(10) → subtract→ total = total - 1
