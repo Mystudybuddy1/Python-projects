@@ -16,12 +16,12 @@ while True:
     print({"1":"Register"})
     print({"2":"Issue a book"})
     print({"3":"Return a book"})
-    print({"4":"View issued books"})
-    print({"5":"Exit"})
+    print({"4":"Exit"})
 
     choice = input("Please select a choice: ")
 
     if choice == "1":
+        
     
         name = input(str("What is your name:  "))
         classname = input("What is your class: ")
@@ -43,10 +43,8 @@ while True:
         else:
             print("You dont have this book!")
 
-    elif choice == "4":
-        print(library.bookissue)
 
-    elif choice == "5":
+    elif choice == "4":
         print("Thank you!")
         break
     
