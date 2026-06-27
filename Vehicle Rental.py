@@ -1,66 +1,74 @@
-#4.built a Vehicle Rental System that ask users which car they want by giving them choice and for how many days by applying Object-Oriented Programming concepts like classes, objects, inheritance, and modular design into a functional project with customer management, vehicle records, booking flow, and dashboard operations.
-class Vehicle:
-    def __init__(self, make, model, year):
-        self.make = make
+class Vehicles:
+    def __init__(self, name, model):
+        self.name = name
         self.model = model
-        self.year = year
-       
-class Car(Vehicle):
-    def __init__(self, make, model, year, num_seats):
-        super().__init__(make, model, year)
-        self.num_seats= num_seats
+
+class Car(Vehicles):
+    def __init__(self, name, model, seats):
+        super().__init__(name, model)
+        self.seats = seats
 
 class Customers:
-    def __init__(self, email, name, phone_no):
-        self.email = email
+    def __init__(self, name, email, phone):
         self.name = name
-        self.phone_no = phone_no
-        
-class RentalSystem:
-    def __init__(self):
-        self.vehicles = []
-        self.customers = []
-        self.bookings = []
+        self.email = email
+        self.phone = phone
 
-print("Welcome to the Vehicle Rental System!")
-rental_system = RentalSystem()
+class Rentalsystem:
+    def __init__(self, customer=None, history=None, cars=None):
+        self.customer = customer if customer is not None else []
+        self.history = history if history is not None else []
+        self.cars = cars if cars is not None else []
+
+class Summary:
+    def __init__(self, history):
+        self.history = history
+
+    def show(self):
+        print("Your history is:")
+        for i in self.history:
+            print(i)
+
+rentalsystem = Rentalsystem()
+
+print("Menu")
 while True:
-    
-    print({"1": "Book a Vehicle"})
-    print({"2": "Exit"})
+    print({"1": "Create a Rental account"})
+    print({"2": "Rent a car"})
+    print({"3": "Summary"})
+    print({"4": "Exit"})
 
-    
-    choice = input("Enter your choice: ")
+    choice = input("Pick your choice..")
 
     if choice == "1":
+        name = input("Enter your name: ")
         email = input("Enter your email: ")
-        name = input("Enter your name:")
-        phone_no = input("Enter your phone number: ")
-        customer = Customers(email, name, phone_no)
-        rental_system.customers.append(customer)
+        phone = input("Enter your phone number: ")
 
-        
-        vehicle_name = input("Enter the name of the vehicle you want to rent: ")
-        vehicle_model = input("Enter the model of the vehicle you want to rent: ")
-
-        rental_system.vehicles.append(Car(vehicle_name, vehicle_model, 2020, 5))
-
+        customer = Customers(name, email, phone)
+        rentalsystem.customer.append(customer)
+        rentalsystem.history.append(f"Account created for {name}")
 
     elif choice == "2":
-        print("Thank you for using the Vehicle Rental System. Goodbye!")
+        car_name = input("Enter your car name: ")
+        model = input("Enter your car model: ")
+        seats = input("Enter number of seats: ")
+
+        car = Car(car_name, model, seats)
+        rentalsystem.cars.append(car)
+        rentalsystem.history.append(f"Car rented: {car_name} {model}")
+
+    elif choice == "3":
+        summary = Summary(rentalsystem.history)
+        summary.show()
+        
+    elif choice == "4":
+        print("Thanks for using")
         break
-
     else:
-        print("Invalid choice. Please try again.")
-
-
-
-
-
-
-
+        print("Invalid choice")
 
 
 
     
-   
+        

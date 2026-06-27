@@ -1,40 +1,41 @@
 class Library:
-    def __init__(self):
+    def __init__(self, bookissue, bookgiven, students):
         self.bookissue = []
         self.bookgiven = []
         self.students = []
 
-class Student:
+class Students:
     def __init__(self, name, classname):
         self.name = name
         self.classname = classname
 
 library = Library()
-print("Welcome to School Library!!")
+print("Welcome to the Library")
 while True:
-
     print({"1":"Register"})
     print({"2":"Issue a book"})
     print({"3":"Return a book"})
-    print({"4":"Exit"})
+    print({"4": "Exit"})
 
-    choice = input("Please select a choice: ")
+    choice = input("Which choice do you want to pick? ")
 
     if choice == "1":
-    
-        name = input(("What is your name:  "))
-        classname = input("What is your class: ")
-        t = Student(name, classname)
-        library.students.append(t)
-    
+        name = input("Enter your name: ")
+        classname = input("Enter your class: ")
+
+        lib = Students(name, classname)
+
+        library.students.append(lib)
 
     elif choice == "2":
-        bookissue = input("Name of book you want: ")
+        bookissue = input("Which book do you wanna issue: ")
 
         library.bookissue.append(bookissue)
+         
 
     elif choice == "3":
-        bookgiven = input("Enter the name of book you want to return: ")
+
+        bookgiven = input("Which book do you want to return: ")
 
         if bookgiven in library.bookissue:
             library.bookissue.remove(bookgiven)
@@ -43,8 +44,10 @@ while True:
             print("You dont have this book!")
 
     elif choice == "4":
-        print("Thank you!")
-        break
-    
+        print("Thank you")
+
     else:
         print("Invalid choice")
+
+    
+
